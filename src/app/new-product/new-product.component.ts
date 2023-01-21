@@ -11,7 +11,7 @@ export class NewProductComponent implements OnInit {
 
   productFormGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder, private prodService:ProductService) {
+  constructor(private fb: FormBuilder, public prodService:ProductService) {
   }
 
   ngOnInit(): void {
@@ -34,14 +34,5 @@ this.productFormGroup.reset();
 })
   }
 
-  getErrorMessage(fieldName: string, error: ValidationErrors) {
-    if (error['required']) {
-      return fieldName + " is required";
-    } else if (error['minlength']) {
-      return fieldName + " should have at least " + error['minlength']['requiredLength'] + " characters";
 
-    } else if (error['min']) {
-      return fieldName + " should have min value " + error['min']['min'];
-    } else return "";
-  }
 }
